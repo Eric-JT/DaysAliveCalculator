@@ -50,6 +50,7 @@ public class DaysAliveTwo {
         }
         break;
       default:
+      //Does not ever make it to this line :(
         System.out.println("You fucked up your inputs, Bitch!");
         break;
       }
@@ -57,9 +58,8 @@ public class DaysAliveTwo {
   }
 
   public static int[] nextDay(int[] date){
-
+// Moves the date to the next day by one number
     if (date[2] < daysInMonth(date[0], date[1])){
-      //date[0], date[1], date[2] = year, month, day++;
       date[0] = date[0];
       date[1] = date[1];
       date[2] = ++date[2];
@@ -67,14 +67,12 @@ public class DaysAliveTwo {
     }
     else {
       if (date[1] == 12) {
-        //date[0], date[1], date[2] = year++, 1, 1;
         date[0] = ++date[0];
         date[1] = 1;
         date[2] = 1;
         return date;
       }
       else {
-        //date[0], date[1], date[2] = year, month++, 1;
         date[0] = date[0];
         date[1] = ++date[1];
         date[2] = 1;
@@ -99,15 +97,12 @@ public class DaysAliveTwo {
     return false;
   }
 
-  // Work on This method
 
   public static int daysBetweenDates(int[] dateOne, int[] dateTwo){
 
     int days = 0;
     while (isDateBefore(dateOne, dateTwo)){
       dateOne = nextDay(dateOne);
-      //month1 = nextDay(year1, month1, day1);
-      //day1 = nextDay(year1, month1, day1);
       days+=1;
     }
     return days;
